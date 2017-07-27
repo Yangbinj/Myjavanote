@@ -1,0 +1,30 @@
+import java.util.*;
+/*
+	泛型：JDK1.5版本以后出现新特性。用于解决安全问题，是一个类型安全机制。
+	 升级有三部分：高效，简化书写，安全。
+
+	好处1、将运行时期出现问题ClassCastException,转移到了编译时期。
+					方便程序员解决问题。让运行事情问题减少，安全。
+
+			2、避免了强制转换麻烦。
+				
+*/
+
+class GenericDemo
+{
+	public static void main(String args[]){
+		ArrayList<String> a1 = new ArrayList<String>();
+		a1.add("abc01");
+		a1.add("abc0997");
+		a1.add("abc014");
+		a1.add("abc013");
+		a1.add(4);//a1.add(new Integer(4));
+		Iterator<String> it = a1.iterator();
+		while(it.hasNext()){
+			String s = it.next();//(String)it.next();
+			System.out.println(s+":"+s.length());
+		}
+		
+		
+	}
+}

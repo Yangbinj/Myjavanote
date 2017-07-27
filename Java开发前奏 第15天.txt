@@ -1,0 +1,89 @@
+二叉树：
+/*
+	Set:无序，不可以重复元素。
+			HashSet:数据结构是哈希表，线程是非同步的。
+							保证元素唯一性的原理：判断元素的hashCode值是否相同。
+							如果相同，还会继续判断元素的equals方法，是否为true；
+							
+			TreeSet:可以对Set集合中的元素进行排序。
+							底层数据结构是二叉树。
+							保证元素唯一性的依据：
+										compareTo方法return 0;
+							TreeSet排序的第一种方式：让元素自身具备比较性。
+								元素需要实现Comparable接口，覆盖compareTo方法。
+								这种方式也成为元素的自然顺序，也成为默认顺序。
+	需求：
+		往TreeSet集合中存储自定义对象学生。
+		想按照学生的年龄进行排序。
+		
+		记住，排序时，当主要条件相同时，一定要判断一下次要条件。
+		
+*/
+import java.util.*;
+class TreeSetDemo//ClassCastException
+{
+	public static void main(String[] args){
+		TreeSet ts = new TreeSet();
+		ts.add(new Student("lisi",22));
+		ts.add(new Student("lisi007",20));//
+		ts.add(new Student("lisi09",19));
+		ts.add(new Student("lisi01",40));
+		Iterator it = ts.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
+	} 
+}
+
+class Student implements Comparable //该接口强制让学生具备比较性。
+{
+		private String name;
+		private int age;
+		Student(String name,int age){
+				this.name = name;
+				this.age = age;
+			}
+		public int compareTo(Object obj){
+			return 1;
+			/*
+			if(!(obj instanceof Student))
+							throw new RuntimeException("no student object");
+			Student s = (Student)obj;
+			
+			if(this.age>s.age)return 100;
+			if(this.age==s.age)
+					return this.name.compareTo(s.name);
+			return -1;
+			*/
+			}
+		public String getName(){
+			return name;
+				}
+		public int getAge(){
+				return age;
+			}
+	}
+
+
+.
+
+
+.
+.
+
+.
+.
+.
+.黑马程序员_毕向东_Java基础...1-集合框架(TreeSet).zip 下载7.32M
+黑马程序员_毕向东_Java基础...eSet存储自定义对象).zip 下载34.18M
+黑马程序员_毕向东_Java基础...03-集合框架(二叉树).zip 下载26.47M
+黑马程序员_毕向东_Java基础...Comparator方式排序).zip 下载30.21M
+黑马程序员_毕向东_Java基础...合框架(TreeSet练习).zip 下载8.74M
+黑马程序员_毕向东_Java基础...-集合框架(泛型概述).zip 下载16.27M
+黑马程序员_毕向东_Java基础...-集合框架(泛型使用).zip 下载19.38M
+黑马程序员_毕向东_Java基础...08-集合框架(泛型类).zip 下载17.54M
+黑马程序员_毕向东_Java基础...-集合框架(泛型方法).zip 下载16.67M
+黑马程序员_毕向东_Java基础...框架(静态方法泛型).zip 下载8.04M
+黑马程序员_毕向东_Java基础...-集合框架(泛型接口).zip 下载5.29M
+黑马程序员_毕向东_Java基础...-集合框架(泛型限定).zip 下载42.02M
+黑马程序员_毕向东_Java基础...集合框架(泛型限定2).zip 下载16.86M
